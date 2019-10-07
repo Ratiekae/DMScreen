@@ -1,0 +1,17 @@
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Debug\DMScreen.exe.config
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Debug\DMScreen.exe
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Debug\DMScreen.pdb
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.csprojAssemblyReference.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\MainWindow.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\App.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen_MarkupCompile.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen_MarkupCompile.lref
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\MainWindow.baml
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.g.resources
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.Properties.Resources.resources
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.csproj.GenerateResource.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.csproj.CoreCompileInputs.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.exe
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\DMScreen.pdb
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\NPCCreation.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Debug\NPCCreation.baml
