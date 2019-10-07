@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DMObjects
+namespace DMScreen.DMObjects
 {
     public class NPCObjects
     {
@@ -12,6 +12,7 @@ namespace DMObjects
         private string _lastname;
         private int _age;
         private string _gender;
+        private string _bond;
 
         public string FirstName
         {
@@ -32,6 +33,11 @@ namespace DMObjects
         {
             get { return _gender; }
             set { _gender = value; }
+        }
+        public string Bond
+        {
+            get { return _bond; }
+            set { _bond = value; }
         }
     }
 }

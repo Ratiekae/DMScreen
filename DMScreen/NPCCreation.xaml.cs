@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DMScreen.DMBusiness;
+using DMScreen.DMObjects;
 
 namespace DMScreen
 {
@@ -20,16 +22,27 @@ namespace DMScreen
     /// </summary>
     public partial class NPCCreation : Page
     {
+        NPCBusiness biz = new NPCBusiness();
+        NPCObjects npc = new NPCObjects();
+        
         public NPCCreation()
         {
             InitializeComponent();
 
             LoadPage();
+
+            TestMethod();
         }
 
         public void LoadPage()
         {
             //MessageBox.Show("NPCCreation Works!");
+        }
+
+        public void TestMethod()
+        {
+            npc.Bond = biz.GetNPCBonds();
+            MessageBox.Show(npc.Bond);
         }
     }
 }
