@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\usmyek00\Source\Repos\DMScreen\DMScreen\obj\Debug\
+C:\Users\usmyek00\Source\Repos\DMScreen\DMScreen\obj\Release\
 DMScreen
 none
 false
-DEBUG;TRACE
+TRACE
 C:\Users\usmyek00\Source\Repos\DMScreen\DMScreen\App.xaml
 2175616631
 
-14739063181
+101507790407
 131569487696
 MainWindow.xaml;NPCCreation.xaml;
 
-False
+True
 
