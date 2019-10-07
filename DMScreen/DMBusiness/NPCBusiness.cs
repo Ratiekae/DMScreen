@@ -14,5 +14,15 @@ namespace DMScreen.DMBusiness
             NPCData data = new NPCData();
             return data.GetNPCBond();
         }
+        public string GetNPCAppearance()
+        {
+            NPCData data = new NPCData();
+            return data.GetNPCAppearance();
+        }
+        public List<string> GetNPCIdeals()
+        {
+            NPCData data = new NPCData();
+            return data.GetNPCIdeals();
+        }
     }
 }

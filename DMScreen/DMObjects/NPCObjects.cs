@@ -13,6 +13,10 @@ namespace DMScreen.DMObjects
         private int _age;
         private string _gender;
         private string _bond;
+        private string _appearance;
+        private List<string> _ideals;
+        private List<string> _flaworsecret;
+
 
         public string FirstName
         {
@@ -38,6 +42,21 @@ namespace DMScreen.DMObjects
         {
             get { return _bond; }
             set { _bond = value; }
+        }
+        public string Appearance
+        {
+            get { return _appearance; }
+            set { _appearance = value; }
+        }
+        public List<string> Ideals
+        {
+            get { return _ideals; }
+            set { _ideals = value; }
+        }
+        public List<string> FlawOrSecret
+        {
+            get { return _flaworsecret; }
+            set { _flaworsecret = value; }
         }
     }
 }

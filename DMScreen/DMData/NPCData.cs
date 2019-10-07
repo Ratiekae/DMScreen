@@ -38,5 +38,23 @@ namespace DMScreen.DMData
 
             return bond;
         }
+
+        public string GetNPCAppearance()
+        {
+            string app = "";
+
+            app = "Looks like the Piss Boy";
+
+            return app;
+        }
+
+        public List<string> GetNPCIdeals()
+        {
+            List<string> ideals = new List<string>();
+
+            ideals.Add("Creativity");
+
+            return ideals;
+        }
     }
 }
