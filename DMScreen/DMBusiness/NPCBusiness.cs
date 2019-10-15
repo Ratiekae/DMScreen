@@ -19,10 +19,15 @@ namespace DMScreen.DMBusiness
             NPCData data = new NPCData();
             return data.GetNPCAppearance();
         }
-        public List<string> GetNPCIdeals()
+        public List<string> GetNPCIdeals(int number)
         {
             NPCData data = new NPCData();
-            return data.GetNPCIdeals();
+            return data.GetNPCIdeals(number);
+        }
+        public List<string> GetNPCFlawsOrSecrets(int number)
+        {
+            NPCData data = new NPCData();
+            return data.GetNPCFlawsOrSecrets(number);
         }
     }
 }
