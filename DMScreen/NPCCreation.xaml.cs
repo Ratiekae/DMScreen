@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,19 +31,53 @@ namespace DMScreen
             InitializeComponent();
 
             LoadPage();
-
-            TestMethod();
         }
 
         public void LoadPage()
         {
-            //MessageBox.Show("NPCCreation Works!");
+            Console.WriteLine("LoadPage works!");
+            txtFlawNum.Text = "1";
         }
 
-        public void TestMethod()
+        private void BtnBond_Click(object sender, RoutedEventArgs e)
         {
-            npc.Bond = biz.GetNPCBonds();
-            MessageBox.Show(npc.Bond);
+            npc.Bond = "Loves their family.";
+            //npc.Bond = biz.GetNPCBonds();
+            txtBond.Text = npc.Bond;
+        }
+
+        private void BtnApp_Click(object sender, RoutedEventArgs e)
+        {
+            npc.Appearance = biz.GetNPCAppearance();
+            txtApp.Text = npc.Appearance;
+        }
+
+        private void BtnIdeals_Click(object sender, RoutedEventArgs e)
+        {
+            int number = 2;
+            npc.Ideals = biz.GetNPCIdeals(number);
+            lstIdeals.ItemsSource = npc.Ideals;
+        }
+
+        private void BtnFOrS_Click(object sender, RoutedEventArgs e)
+        {
+            int number = 1;
+            number = Convert.ToInt32(txtFlawNum.Text);
+            try
+            {
+                npc.FlawOrSecret = biz.GetNPCFlawsOrSecrets(number);
+                lstFOrS.ItemsSource = npc.FlawOrSecret;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void TxtFlawNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);            
         }
     }
 }

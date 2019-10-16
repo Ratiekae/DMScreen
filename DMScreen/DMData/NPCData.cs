@@ -11,6 +11,7 @@ namespace DMScreen.DMData
 {
     public class NPCData
     {
+        Random rand = new Random();
         public string GetNPCBond()
         {
             string bond = "";
@@ -48,13 +49,44 @@ namespace DMScreen.DMData
             return app;
         }
 
-        public List<string> GetNPCIdeals()
+        public List<string> GetNPCIdeals(int number)
         {
             List<string> ideals = new List<string>();
+            List<string> bluh = new List<string>();
 
-            ideals.Add("Creativity");
+            bluh.Add("Creativity");
+            bluh.Add("Anarchy");
+            bluh.Add("Personal Freedom");
+
+            for (int i = 0; i < number; i++)
+            {
+                int x = rand.Next(bluh.Count());
+                ideals.Add(bluh[x]);
+                bluh.RemoveAt(x);
+            }
 
             return ideals;
+        }
+        public List<string> GetNPCFlawsOrSecrets(int number)
+        {
+            List<string> fors = new List<string>();
+            List<string> bluh = new List<string>();
+
+
+            bluh.Add("Has secret families across the countryside.");
+            bluh.Add("Once killed a man and doesn't feel regret for it.");
+            bluh.Add("Believes Capitalism is an inherently moral economic system.");
+            bluh.Add("Doesn't wash their hands after peeing.");
+            bluh.Add("Doesn't understand all the fuss over corgies.");
+
+            for (int i = 0; i < number; i++)
+            {
+                int x = rand.Next(bluh.Count());
+                fors.Add(bluh[x]);
+                bluh.RemoveAt(x);
+            }
+
+            return fors;
         }
     }
 }
