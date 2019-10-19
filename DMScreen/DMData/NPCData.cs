@@ -12,7 +12,7 @@ namespace DMScreen.DMData
     public class NPCData
     {
         Random rand = new Random();
-        public string GetNPCBond()
+        public string GetNPCBond(int roll)
         {
             string bond = "";
             try
@@ -21,13 +21,19 @@ namespace DMScreen.DMData
                 {
                     SqlCommand cmd = conn.CreateCommand();
                     cmd.CommandType = CommandType.Text;
-                    cmd.CommandText = "SELECT Bond FROM NPCBonds WHERE ID=3";
+                    cmd.CommandText = "SELECT Bond FROM NPCCreation WHERE RollOverride = @RollOverride";
                     cmd.CommandTimeout = 0;
 
-                    //cmd.Parameters.AddWithValue("@Id", roll);
+                    cmd.Parameters.AddWithValue("@RollOverride", roll);
 
                     conn.Open();
-                    cmd.ExecuteNonQuery();
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            bond = read["Bond"].ToString();
+                        }
+                    }
                     conn.Close();
                 }
             }
@@ -40,53 +46,182 @@ namespace DMScreen.DMData
             return bond;
         }
 
-        public string GetNPCAppearance()
+        public string GetNPCAppearance(int roll)
         {
             string app = "";
 
-            app = "Looks like the Piss Boy";
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(AppConfig.DynamicsConnectionString))
+                {
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT Feature FROM NPCCreation WHERE RollOverride = @RollOverride";
+                    cmd.CommandTimeout = 0;
+
+                    cmd.Parameters.AddWithValue("@RollOverride", roll);
+
+                    conn.Open();
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            app = read["Feature"].ToString();
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                app = "Enjoys not having access to the database";
+            }
 
             return app;
         }
 
-        public List<string> GetNPCIdeals(int number)
+        public List<string> GetRandomNPCIdeals(int number)
         {
             List<string> ideals = new List<string>();
             List<string> bluh = new List<string>();
 
-            bluh.Add("Creativity");
-            bluh.Add("Anarchy");
-            bluh.Add("Personal Freedom");
+            int roll = rand.Next(1, 37);
 
-            for (int i = 0; i < number; i++)
+            try
             {
-                int x = rand.Next(bluh.Count());
-                ideals.Add(bluh[x]);
-                bluh.RemoveAt(x);
-            }
+                using (SqlConnection conn = new SqlConnection(AppConfig.DynamicsConnectionString))
+                {
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT GoodIdeal, EvilIdeal, LawfulIdeal, ChaoticIdeal, NeutralIdeal, OtherIdeal FROM NPCCreation WHERE GoodIdeal IS NOT NULL AND EvilIdeal IS NOT NULL AND LawfulIdeal IS NOT NULL AND ChaoticIdeal IS NOT NULL AND NeutralIdeal IS NOT NULL AND OtherIdeal IS NOT NULL";
 
+                    cmd.CommandTimeout = 0;
+                    cmd.Parameters.AddWithValue("@RollOverride", roll);
+                    conn.Open();
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())                            
+                        {
+                                bluh.Add(read["GoodIdeal"].ToString());
+                                bluh.Add(read["EvilIdeal"].ToString());
+                                bluh.Add(read["LawfulIdeal"].ToString());
+                                bluh.Add(read["ChaoticIdeal"].ToString());
+                                bluh.Add(read["NeutralIdeal"].ToString());
+                                bluh.Add(read["OtherIdeal"].ToString());
+
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                ideals.Add("Enjoys not having access to the database");
+            }
+            try
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    int x = rand.Next(bluh.Count());
+                    ideals.Add(bluh[x]);
+                    bluh.RemoveAt(x);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
             return ideals;
         }
+
         public List<string> GetNPCFlawsOrSecrets(int number)
         {
             List<string> fors = new List<string>();
             List<string> bluh = new List<string>();
 
+            //bluh.Add("Has secret families across the countryside.");
+            //bluh.Add("Once killed a man and doesn't feel regret for it.");
+            //bluh.Add("Believes Capitalism is an inherently moral economic system.");
+            //bluh.Add("Doesn't wash their hands after peeing.");
+            //bluh.Add("Doesn't understand all the fuss over corgies.");
 
-            bluh.Add("Has secret families across the countryside.");
-            bluh.Add("Once killed a man and doesn't feel regret for it.");
-            bluh.Add("Believes Capitalism is an inherently moral economic system.");
-            bluh.Add("Doesn't wash their hands after peeing.");
-            bluh.Add("Doesn't understand all the fuss over corgies.");
-
-            for (int i = 0; i < number; i++)
+            try
             {
-                int x = rand.Next(bluh.Count());
-                fors.Add(bluh[x]);
-                bluh.RemoveAt(x);
+                using (SqlConnection conn = new SqlConnection(AppConfig.DynamicsConnectionString))
+                {
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT FlawOrSecret FROM NPCCreation WHERE FlawOrSecret IS NOT NULL";
+                    cmd.CommandTimeout = 0;
+
+                    conn.Open();
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            bluh.Add(read["FlawOrSecret"].ToString());
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                fors.Add("Enjoys not having access to the database");
+            }
+
+            try
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    int x = rand.Next(bluh.Count());
+                    fors.Add(bluh[x]);
+                    bluh.RemoveAt(x);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
 
             return fors;
+        }
+        public string GetNPCTrait(int roll)
+        {
+            string trait = "";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(AppConfig.DynamicsConnectionString))
+                {
+                    SqlCommand cmd = conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "SELECT Trait FROM NPCCreation WHERE RollOverride = @RollOverride";
+                    cmd.CommandTimeout = 0;
+
+                    cmd.Parameters.AddWithValue("@RollOverride", roll);
+
+                    conn.Open();
+                    using (SqlDataReader read = cmd.ExecuteReader())
+                    {
+                        while (read.Read())
+                        {
+                            trait = read["Trait"].ToString();
+                        }
+                    }
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                trait = "Enjoys not having access to the database";
+            }
+
+            return trait;
         }
     }
 }

@@ -1,0 +1,17 @@
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Release\DMScreen.exe.config
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Release\DMScreen.exe
+C:\Users\Katie\source\repos\DMScreen\DMScreen\bin\Release\DMScreen.pdb
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.csprojAssemblyReference.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\MainWindow.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\NPCCreation.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\App.g.cs
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen_MarkupCompile.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen_MarkupCompile.lref
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\MainWindow.baml
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\NPCCreation.baml
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.g.resources
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.Properties.Resources.resources
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.csproj.GenerateResource.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.csproj.CoreCompileInputs.cache
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.exe
+C:\Users\Katie\source\repos\DMScreen\DMScreen\obj\Release\DMScreen.pdb

@@ -16,6 +16,7 @@ namespace DMScreen.DMObjects
         private string _appearance;
         private List<string> _ideals;
         private List<string> _flaworsecret;
+        private string _trait;
 
 
         public string FirstName
@@ -57,6 +58,11 @@ namespace DMScreen.DMObjects
         {
             get { return _flaworsecret; }
             set { _flaworsecret = value; }
+        }
+        public string Trait
+        {
+            get { return _trait; }
+            set { _trait = value; }
         }
     }
 }

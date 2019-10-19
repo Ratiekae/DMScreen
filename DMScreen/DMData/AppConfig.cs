@@ -11,7 +11,7 @@ namespace DMScreen.DMData
     {
         public static string DynamicsConnectionString
         {
-            get { return ConfigurationSettings.AppSettings["DynamicsConnectionString"].ToString(); }
+            get { return ConfigurationManager.ConnectionStrings["DynamicsConnectionString"].ConnectionString; }
         }
     }
 }

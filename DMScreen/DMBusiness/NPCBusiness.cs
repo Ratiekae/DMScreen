@@ -9,25 +9,30 @@ namespace DMScreen.DMBusiness
 {
     public class NPCBusiness
     {
-        public string GetNPCBonds()
+        public string GetNPCBonds(int roll)
         {
             NPCData data = new NPCData();
-            return data.GetNPCBond();
+            return data.GetNPCBond(roll);
         }
-        public string GetNPCAppearance()
+        public string GetNPCAppearance(int roll)
         {
             NPCData data = new NPCData();
-            return data.GetNPCAppearance();
+            return data.GetNPCAppearance(roll);
         }
-        public List<string> GetNPCIdeals(int number)
+        public List<string> GetRandomNPCIdeals(int number)
         {
             NPCData data = new NPCData();
-            return data.GetNPCIdeals(number);
+            return data.GetRandomNPCIdeals(number);
         }
         public List<string> GetNPCFlawsOrSecrets(int number)
         {
             NPCData data = new NPCData();
             return data.GetNPCFlawsOrSecrets(number);
+        }
+        public string GetNPCTrait(int roll)
+        {
+            NPCData data = new NPCData();
+            return data.GetNPCTrait(roll);
         }
     }
 }

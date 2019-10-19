@@ -25,6 +25,8 @@ namespace DMScreen
     {
         NPCBusiness biz = new NPCBusiness();
         NPCObjects npc = new NPCObjects();
+        Random rand = new Random();
+        int roll;
         
         public NPCCreation()
         {
@@ -37,25 +39,28 @@ namespace DMScreen
         {
             Console.WriteLine("LoadPage works!");
             txtFlawNum.Text = "1";
+            txtIdealNum.Text = "1";
         }
 
         private void BtnBond_Click(object sender, RoutedEventArgs e)
         {
-            npc.Bond = "Loves their family.";
-            //npc.Bond = biz.GetNPCBonds();
+            roll = rand.Next(1, 11);            
+            npc.Bond = biz.GetNPCBonds(roll);
             txtBond.Text = npc.Bond;
         }
 
         private void BtnApp_Click(object sender, RoutedEventArgs e)
         {
-            npc.Appearance = biz.GetNPCAppearance();
+            roll = rand.Next(1, 21);
+            npc.Appearance = biz.GetNPCAppearance(roll);
             txtApp.Text = npc.Appearance;
         }
 
         private void BtnIdeals_Click(object sender, RoutedEventArgs e)
         {
             int number = 2;
-            npc.Ideals = biz.GetNPCIdeals(number);
+            number = Convert.ToInt32(txtIdealNum.Text);
+            npc.Ideals = biz.GetRandomNPCIdeals(number);
             lstIdeals.ItemsSource = npc.Ideals;
         }
 
@@ -78,6 +83,13 @@ namespace DMScreen
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);            
+        }
+
+        private void BtnTraits_Click(object sender, RoutedEventArgs e)
+        {
+            roll = rand.Next(1, 13);
+            npc.Trait = biz.GetNPCTrait(roll);
+            txtTrait.Text = npc.Trait;
         }
     }
 }
