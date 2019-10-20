@@ -26,6 +26,8 @@ namespace DMScreen
         NPCBusiness biz = new NPCBusiness();
         NPCObjects npc = new NPCObjects();
         Random rand = new Random();
+        string applicationTitle = "DMScreen";
+
         int roll;
         
         public NPCCreation()
@@ -37,7 +39,6 @@ namespace DMScreen
 
         public void LoadPage()
         {
-            Console.WriteLine("LoadPage works!");
             txtFlawNum.Text = "1";
             txtIdealNum.Text = "1";
         }
@@ -79,7 +80,7 @@ namespace DMScreen
             }
         }
 
-        private void TxtFlawNum_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        private void TxtNumber_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
             e.Handled = regex.IsMatch(e.Text);            
@@ -90,6 +91,14 @@ namespace DMScreen
             roll = rand.Next(1, 13);
             npc.Trait = biz.GetNPCTrait(roll);
             txtTrait.Text = npc.Trait;
+        }
+
+        private void BtnMainMenu_Click(object sender, RoutedEventArgs e)
+        {
+            //MainWindow mainwin = new MainWindow();
+            //this.NavigationService.Navigate(mainwin);
+            //this.Title = applicationTitle + " - Main Menu";
+            MessageBox.Show("Doesn't work yet. :(");
         }
     }
 }

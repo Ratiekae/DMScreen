@@ -12,8 +12,34 @@
                 <Frame x:Name="mainFrame"
                        NavigationUIVisibility="Hidden"
                        HorizontalAlignment="Stretch"
-                       VerticalAlignment="Stretch"/> 
+                       VerticalAlignment="Stretch"/>
             </ScrollViewer>
+
+            <Grid Height="660.5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="17*"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Button Content="NPC Creator" Margin="5,5" Width="150" Grid.Column="0" x:Name="btnNPCCreator" Click="BtnNPCCreator_Click"/>
+                    <Button Content="PC Creator" Margin="5,5" Width="150" Grid.Column="1" x:Name="btnPCCreator" Click="BtnPCCreator_Click"/>
+                    <Button Content="DM Tools" Margin="5,5" Width="150" Grid.Column="2" Click="Button_Click"/>
+                    <Button Content="NPC Manager" Margin="5,5" Width="150" Grid.Column="3" Click="Button_Click"/>
+                    <Button Content="PC Manager" Margin="5,5" Width="150" Grid.Column="4" Click="Button_Click"/>
+                    <Button Content="Campaign Creator" Margin="5,5" Width="150" Grid.Column="5" Click="Button_Click"/>
+                    <Button Content="Campaign Manager" Margin="5,5" Width="150" Grid.Column="6" Click="Button_Click"/>
+                </Grid>
+
+            </Grid>
         </StackPanel>
     </Grid>
 </Window>

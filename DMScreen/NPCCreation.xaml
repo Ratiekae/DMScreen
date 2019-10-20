@@ -19,25 +19,31 @@
                 </Grid.ColumnDefinitions>
 
                 <StackPanel Grid.Row="0" Grid.Column="0">
-                    <Label Content="Race" Grid.Row="0" Grid.Column="0"/>
+                    <Button Content="Return to Main Menu" Margin="5,5,55,5" Width="150" x:Name="btnMainMenu" Click="BtnMainMenu_Click"/>
+                    <Label Content="Race" Grid.Row="0" Grid.Column="0" Margin="5,5"/>
                     <ComboBox Margin="5,5" Grid.Row="0" Grid.Column="0">
                         <ComboBoxItem Content="Elf"/>
                         <ComboBoxItem Content="Human"/>
                         <ComboBoxItem Content="Dwarf"/>
                     </ComboBox>
+                    <Label Content="Notes:" Margin="5,5"/>
+                    <RichTextBox Height="200" Margin="5,5" VerticalScrollBarVisibility="Auto" x:Name="NoteBox">
+                        <FlowDocument PageWidth="{Binding ElementName=NoteBox, Path=ActualWidth}"/>
+                    </RichTextBox>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Grid.Column="1">
-                    <Button Grid.Row="1" Grid.Column="1" Content="BOND GET" x:Name="btnBond" Click="BtnBond_Click" Margin="15,15" Width="150"/>
+                    <Button Grid.Row="1" Grid.Column="1" Content="BOND GET" x:Name="btnBond" Click="BtnBond_Click" Margin="15,15,15,5" Width="150"/>
                     <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtBond" Margin="5,5" Width="350" TextAlignment="Center" TextWrapping="Wrap"/>
-                    <Button Grid.Row="1" Grid.Column="1" Content="APPEARANCE GET" x:Name="btnApp" Click="BtnApp_Click" Margin="15,15" Width="150"/>
+                    <Button Grid.Row="1" Grid.Column="1" Content="APPEARANCE GET" x:Name="btnApp" Click="BtnApp_Click" Margin="15,15,15,5" Width="150"/>
                     <TextBox Grid.Column="1" Grid.Row="1" x:Name="txtApp" Margin="5,5" Width="350" TextAlignment="Center" TextWrapping="Wrap"/>
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="3*"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="91*"/>
+                            <ColumnDefinition Width="210*"/>
+                            <ColumnDefinition Width="100*"/>
                         </Grid.ColumnDefinitions>
-                        <Button Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right" Margin="5,5,25,5" Width="150" Content="IDEAL GET" x:Name="btnIdeals" Click="BtnIdeals_Click"/>
-                        <TextBox Grid.Column="1" x:Name="txtIdealNum" Margin="5,0" PreviewTextInput="TxtFlawNum_PreviewTextInput"/>
+                        <Button Grid.Column="1" HorizontalAlignment="Right" Margin="5,5,25,5" Width="150" Content="IDEAL GET" x:Name="btnIdeals" Click="BtnIdeals_Click"/>
+                        <TextBox Grid.Column="2" x:Name="txtIdealNum" Margin="5,5" PreviewTextInput="TxtNumber_PreviewTextInput"/>
                     </Grid>
                     <ListBox x:Name="lstIdeals" Margin="15,15" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="225"/>
                     <Button x:Name="btnTraits" Margin="5,5" Width="150" Content="TRAIT GET" Click="BtnTraits_Click" Grid.Column="1"/>
@@ -49,8 +55,8 @@
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Margin="5,5" Width="250" Content="FLAW OR SECRET GET" x:Name="btnFOrS" Click="BtnFOrS_Click"/>
-                        <TextBox Grid.Column="1" x:Name="txtFlawNum" Margin="5,0" PreviewTextInput="TxtFlawNum_PreviewTextInput"/>
+                        <Button Grid.Column="0" Margin="5,5" Width="250" Content="FLAW OR SECRET GET" x:Name="btnFOrS" Click="BtnFOrS_Click"/>
+                        <TextBox Grid.Column="1" x:Name="txtFlawNum" Margin="5,5" PreviewTextInput="TxtNumber_PreviewTextInput"/>
                     </Grid>
                     <ListBox x:Name="lstFOrS" Margin="15,15" ScrollViewer.VerticalScrollBarVisibility="Auto" Height="225"/>
                 </StackPanel>

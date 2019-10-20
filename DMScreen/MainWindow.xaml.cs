@@ -30,9 +30,24 @@ namespace DMScreen
 
         private void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void BtnNPCCreator_Click(object sender, RoutedEventArgs e)
+        {
             NPCCreation create = new NPCCreation();
             mainFrame.NavigationService.Navigate(create);
             this.Title = applicationTitle + " - NPC Creation";
+        }
+
+        private void BtnPCCreator_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This feature still in development. :(");
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This feature still in development. :(");
         }
     }
 }
